@@ -1,7 +1,4 @@
-build
 package-lock.json
-yarn-error.log
-yarn.lock
 README.md
 node_modules
 build

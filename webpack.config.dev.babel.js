@@ -2,9 +2,9 @@
 
 import merge from 'webpack-merge';
 import { HotModuleReplacementPlugin } from 'webpack';
-import { baseConfig } from './webpack.config.base.babel';
 import DashboardPlugin from 'webpack-dashboard/plugin';
 import Dashboard from 'webpack-dashboard';
+import { baseConfig } from './webpack.config.base.babel';
 
 const dashboard = new Dashboard();
 

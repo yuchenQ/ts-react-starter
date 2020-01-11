@@ -1,8 +1,8 @@
 /** @format */
 
 import merge from 'webpack-merge';
-import { baseConfig } from './webpack.config.base.babel';
 import { BundleAnalyzerPlugin } from 'webpack-bundle-analyzer';
+import { baseConfig } from './webpack.config.base.babel';
 
 const prodConfig = merge(baseConfig, {
   mode: 'production',

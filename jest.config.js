@@ -4,7 +4,7 @@ module.exports = {
   preset: 'ts-jest',
   testEnvironment: 'node',
   roots: ['<rootDir>/src'],
-  setupFiles: ['<rootDir>/enzyme.setup.ts'],
+  setupFiles: ['<rootDir>/enzyme.setup.js'],
   testRegex: '(/__tests__/.*|(\\.|/)(test|spec))\\.tsx?$',
   moduleFileExtensions: ['ts', 'tsx', 'js', 'jsx', 'json', 'node'],
   snapshotSerializers: ['enzyme-to-json/serializer'],

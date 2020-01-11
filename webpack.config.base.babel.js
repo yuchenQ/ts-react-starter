@@ -1,6 +1,6 @@
 /** @format */
 
-import { resolve, join } from 'path';
+import { resolve } from 'path';
 import { warmup as threadLoaderWarmup } from 'thread-loader';
 import HTMLWebpackPlugin from 'html-webpack-plugin';
 import MiniCssExtractPlugin from 'mini-css-extract-plugin';
