@@ -8,7 +8,7 @@
     "start": "webpack-dev-server --config webpack.config.dev.babel.js",
     "test": "jest --passWithNoTests",
     "lint": "concurrently npm:lint:*",
-    "lint:es": "eslint src --ext .js,.ts,.tsx,.jsx --quiet --fix",
+    "lint:es": "eslint './src/**/*.{tsx,ts}' --quiet --fix",
     "lint:css": "stylelint './src/**/*.tsx'"
   },
   "keywords": [
@@ -33,6 +33,7 @@
   },
   "homepage": "https://github.com/GeekEast/create-react-ts#readme",
   "dependencies": {
+    "@babel/runtime-corejs3": "^7.8.0",
     "@types/styled-components": "^4.4.2",
     "concurrently": "^5.0.2",
     "jest-styled-components": "^6.3.4",
@@ -46,6 +47,7 @@
     "@babel/core": "^7.7.7",
     "@babel/plugin-proposal-class-properties": "^7.7.4",
     "@babel/plugin-proposal-object-rest-spread": "^7.7.7",
+    "@babel/plugin-transform-runtime": "^7.8.0",
     "@babel/preset-env": "^7.7.7",
     "@babel/preset-react": "^7.7.4",
     "@babel/preset-typescript": "^7.7.7",
@@ -69,7 +71,6 @@
     "babel-jest": "^24.9.0",
     "babel-loader": "^8.0.6",
     "babel-plugin-styled-components": "^1.10.6",
-    "core-js": "^3.6.3",
     "css-loader": "^3.4.2",
     "enzyme": "^3.11.0",
     "enzyme-adapter-react-16": "^1.15.2",

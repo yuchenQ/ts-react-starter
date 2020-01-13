@@ -3,9 +3,11 @@
 module.exports = {
   parser: '@typescript-eslint/parser',
   parserOptions: {
-		ecmaVersion: 2019,
-		sourceType: 'module',
-	},
+    ecmaVersion: 2019,
+    sourceType: 'module',
+    project: './tsconfig.json',
+    tsconfigRootDir: __dirname,
+  },
   extends: [
     'airbnb-typescript',
     'plugin:@typescript-eslint/recommended',
@@ -22,16 +24,16 @@ module.exports = {
     es6: true,
   },
   globals: {
-		Atomics: 'readonly',
-		SharedArrayBuffer: 'readonly',
-	},
+    Atomics: 'readonly',
+    SharedArrayBuffer: 'readonly',
+  },
   rules: {
     'react/destructuring-assignment': 'off',
     'no-use-before-define': ['error',
       { functions: false, classes: true, variables: true }
     ],
     '@typescript-eslint/no-explicit-any': ['off'],
-		'@typescript-eslint/no-var-requires': ['off'],
+    '@typescript-eslint/no-var-requires': ['off'],
     '@typescript-eslint/explicit-function-return-type': [
       'error',
       { allowExpressions: true, allowTypedFunctionExpressions: true },
