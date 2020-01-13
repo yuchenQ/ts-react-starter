@@ -45,14 +45,13 @@ const baseConfig = {
         test: /\.(ts|js)x?$/,
         exclude: /node_modules/,
         // loader run from bottom to top
-        use: ['cache-loader', 'thread-loader', 'babel-loader'],
+        use: ['thread-loader', 'babel-loader'],
       },
       {
         test: /\.css$/,
         exclude: /node_modules/,
         use: [
           MiniCssExtractPlugin.loader, // commonJS -> Native JS (same as style-loader)
-          // cache-loader and mini-css-extract don't work as desired when together
           'thread-loader',
           'css-loader', // css -> commonJS
         ],
