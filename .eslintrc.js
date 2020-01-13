@@ -5,8 +5,6 @@ module.exports = {
   parserOptions: {
     ecmaVersion: 2019,
     sourceType: 'module',
-    project: './tsconfig.json',
-    tsconfigRootDir: __dirname,
   },
   extends: [
     'airbnb-typescript',
@@ -27,6 +25,11 @@ module.exports = {
     Atomics: 'readonly',
     SharedArrayBuffer: 'readonly',
   },
+  "settings": {
+    "react": {
+      "version": "detect" // depends on eslint-plugin-react
+    }
+  },
   rules: {
     'react/destructuring-assignment': 'off',
     'no-use-before-define': ['error',
@@ -42,5 +45,6 @@ module.exports = {
       'error',
       { functions: false, classes: true, variables: true, typedefs: true },
     ],
+    'import/no-extraneous-dependencies': ['error', { devDependencies: true }],
   },
 };

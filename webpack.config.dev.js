@@ -1,17 +1,21 @@
 /** @format */
 
-import merge from 'webpack-merge';
-import { HotModuleReplacementPlugin } from 'webpack';
-import DashboardPlugin from 'webpack-dashboard/plugin';
-import Dashboard from 'webpack-dashboard';
-import { baseConfig } from './webpack.config.base.babel';
+const merge = require('webpack-merge');
+const { HotModuleReplacementPlugin } = require('webpack');
+const DashboardPlugin = require('webpack-dashboard/plugin');
+const Dashboard = require('webpack-dashboard');
+const baseConfig = require('./webpack.config.base');
 
 const dashboard = new Dashboard();
 
-const devConfig = merge(baseConfig, {
+module.exports = merge(baseConfig, {
   mode: 'development',
 
   devtool: 'cheap-module-eval-source-map',
+
+  performance: {
+    hints: 'warning',
+  },
 
   devServer: {
     compress: true,
@@ -44,5 +48,3 @@ const devConfig = merge(baseConfig, {
     }),
   ],
 });
-
-export default devConfig;
