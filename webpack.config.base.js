@@ -42,7 +42,7 @@ module.exports = {
             loader: MiniCssExtractPlugin.loader,
             options: {
               // only enable hot in development
-              hmr: true,
+              hmr: process.env.NODE_ENV === 'development',
               // if hmr does not work, this is a forceful method.
               reloadAll: true,
             },
