@@ -5,7 +5,7 @@
 |---------------------|--------------------------------|--------------------------------------|
 | Git                 | Version Control                | Git, Husky                           |
 | Webpack             | Bundler                        | Mode, Server, Debugger, Analyzer     |
-| Typescript          | Transpiler and Static Testing  | awesome-typescript-loader, decorator |
+| Typescript          | Transpiler and Static Testing  | babel-loader, decorator              |
 | React               | Component Web                  | Hot Load                             |
 | Test                | Test code                      | Jest, Enzyme                         |
 | Code Formatter      | Format code                    | Prettier                             |
@@ -14,28 +14,30 @@
 
 
 ### Prepare
-- **Step 1**: `git clone git@github.com:GeekEast/create-react-ts.git project_folder_name` 
+- **Step 1**: `git clone git@github.com:yuchenQ/ts-react-starter.git project_folder_name` 
 - **Step 2**: `cd project_folder_name && rm -rf .git`
 
 ### Install 
 ```sh
-yarn
 # or
 npm install
 ```
 
 ### Start
 ```sh
-yarn start
 # or
 npm run start
 ```
 
 ### Build
 ```sh
-yarn build
 # or
 npm run build
+```
+
+### Build when update react or styled-components
+```sh
+npm run build:dll
 ```
 
 ### Hot Load

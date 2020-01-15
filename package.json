@@ -1,7 +1,7 @@
 {
   "name": "ts-react-starter",
   "version": "1.0.0",
-  "description": "The React boilerplate with webpack, babel, typescript, jest and enzyme.",
+  "description": "The React boilerplate with webpack, styled-components, babel, typescript, jest and enzyme.",
   "main": "src/index.tsx",
   "scripts": {
     "dll": "webpack --config webpack.config.dll.js",
@@ -28,12 +28,12 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/GeekEast/create-react-ts.git"
+    "url": "git+https://github.com/yuchenQ/ts-react-starter.git"
   },
   "bugs": {
-    "url": "https://github.com/GeekEast/create-react-ts/issues"
+    "url": "https://github.com/yuchenQ/ts-react-starter/issues"
   },
-  "homepage": "https://github.com/GeekEast/create-react-ts#readme",
+  "homepage": "https://github.com/yuchenQ/ts-react-starter#readme",
   "dependencies": {
     "@babel/runtime-corejs3": "^7.8.0",
     "@types/styled-components": "^4.4.2",
