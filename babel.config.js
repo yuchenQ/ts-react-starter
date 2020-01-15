@@ -11,6 +11,7 @@ const plugins = [
       corejs: 3,
     },
   ],
+  '@babel/plugin-syntax-dynamic-import',
   'babel-plugin-styled-components',
 ];
 
