@@ -1,13 +1,16 @@
 /** @format */
-const { resolve } = require('path');
+const path = require('path');
+const webpack = require('webpack');
 const HTMLWebpackPlugin = require('html-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const CopyWebpackPlugin = require('copy-webpack-plugin');
+const vendorManifest = require('./vendor-manifest.json');
 
-const BUILD_DIR = resolve(__dirname, 'build');
-const PUBLIC_DIR = resolve(__dirname, 'public');
-const SOURCE_DIR = resolve(__dirname, 'src');
-const MODULES_DIR = resolve(__dirname, 'node_modules');
+const BUILD_DIR = path.resolve(__dirname, 'build');
+const PUBLIC_DIR = path.resolve(__dirname, 'public');
+const SOURCE_DIR = path.resolve(__dirname, 'src');
+const MODULES_DIR = path.resolve(__dirname, 'node_modules');
 
 const mode = process.env.NODE_ENV || 'production';
 
@@ -36,13 +39,14 @@ module.exports = {
       },
       {
         test: /\.css$/,
+        include: path.resolve(__dirname, 'src/style'),
         exclude: /node_modules/,
         use: [
           {
             loader: MiniCssExtractPlugin.loader,
             options: {
               // only enable hot in development
-              hmr: process.env.NODE_ENV === 'development',
+              hmr: mode === 'development',
               // if hmr does not work, this is a forceful method.
               reloadAll: true,
             },
@@ -53,6 +57,7 @@ module.exports = {
       },
       {
         test: /\.(gif|png|jpe?g|svg)$/i,
+        include: path.resolve(__dirname, 'src/assets'),
         exclude: /node_modules/,
         use: [
           'cache-loader',
@@ -75,19 +80,16 @@ module.exports = {
   plugins: [
     new CleanWebpackPlugin(),
     new HTMLWebpackPlugin({
-      template: resolve(PUBLIC_DIR, 'index.html'),
-      inject: true,
-      // compress HTML config
-      minify: {
-        removeComments: true,
-        collapseWhitespace: true,
-        removeAttributeQuotes: true,
-      },
+      template: path.resolve(PUBLIC_DIR, 'index.html'),
     }),
     new MiniCssExtractPlugin({
-      filename: process.env.NODE_ENV === 'development' ? 'css/[name].css' : 'css/[name].[hash].css',
-      chunkFilename:
-        process.env.NODE_ENV === 'development' ? 'css/[id].css' : 'css/[id].[hash].css',
+      filename: mode === 'development' ? 'css/[name].css' : 'css/[name].[hash].css',
+      chunkFilename: mode === 'development' ? 'css/[id].css' : 'css/[id].[hash].css',
     }),
+    new webpack.DllReferencePlugin({
+      context: __dirname,
+      manifest: vendorManifest,
+    }),
+    new CopyWebpackPlugin([{ from: 'static', to: 'static' }]),
   ],
 };
