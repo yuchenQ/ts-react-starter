@@ -25,26 +25,9 @@ module.exports = {
     Atomics: 'readonly',
     SharedArrayBuffer: 'readonly',
   },
-  "settings": {
-    "react": {
-      "version": "detect" // depends on eslint-plugin-react
-    }
-  },
-  rules: {
-    'react/destructuring-assignment': 'off',
-    'no-use-before-define': ['error',
-      { functions: false, classes: true, variables: true }
-    ],
-    '@typescript-eslint/no-explicit-any': ['off'],
-    '@typescript-eslint/no-var-requires': ['off'],
-    '@typescript-eslint/explicit-function-return-type': [
-      'error',
-      { allowExpressions: true, allowTypedFunctionExpressions: true },
-    ],
-    '@typescript-eslint/no-use-before-define': [
-      'error',
-      { functions: false, classes: true, variables: true, typedefs: true },
-    ],
-    'import/no-extraneous-dependencies': ['error', { devDependencies: true }],
+  settings: {
+    react: {
+      version: 'detect', // depends on eslint-plugin-react
+    },
   },
 };
