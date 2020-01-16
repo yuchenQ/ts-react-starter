@@ -7,10 +7,9 @@ const Dashboard = require('webpack-dashboard');
 const baseConfig = require('./webpack.config.base');
 
 const dashboard = new Dashboard();
+const DEFAULT_PORT = 8000;
 
 module.exports = merge(baseConfig, {
-  mode: 'development',
-
   devtool: 'cheap-module-eval-source-map',
 
   performance: {
@@ -22,7 +21,7 @@ module.exports = merge(baseConfig, {
     hot: true,
     quiet: true, // lets WebpackDashboard do its thing
     host: process.env.DEV_HOST || '0.0.0.0',
-    port: process.env.DEV_PORT || 8000,
+    port: process.env.DEV_PORT || DEFAULT_PORT,
     historyApiFallback: true,
     overlay: { errors: true },
     open: true,
@@ -43,7 +42,7 @@ module.exports = merge(baseConfig, {
   plugins: [
     new HotModuleReplacementPlugin(),
     new DashboardPlugin({
-      port: process.env.DEV_PORT || 8000,
+      port: process.env.DEV_PORT || DEFAULT_PORT,
       handler: dashboard.setData,
     }),
   ],

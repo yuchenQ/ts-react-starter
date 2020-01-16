@@ -1,11 +1,10 @@
 /** @format */
+
 const path = require('path');
-const webpack = require('webpack');
 const HTMLWebpackPlugin = require('html-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-const CopyWebpackPlugin = require('copy-webpack-plugin');
-const vendorManifest = require('./vendor-manifest.json');
+const HardSourceWebpackPlugin = require('hard-source-webpack-plugin');
 
 const BUILD_DIR = path.resolve(__dirname, 'build');
 const PUBLIC_DIR = path.resolve(__dirname, 'public');
@@ -86,10 +85,6 @@ module.exports = {
       filename: mode === 'development' ? 'css/[name].css' : 'css/[name].[hash].css',
       chunkFilename: mode === 'development' ? 'css/[id].css' : 'css/[id].[hash].css',
     }),
-    new webpack.DllReferencePlugin({
-      context: __dirname,
-      manifest: vendorManifest,
-    }),
-    new CopyWebpackPlugin([{ from: 'static', to: 'static' }]),
+    new HardSourceWebpackPlugin(),
   ],
 };
